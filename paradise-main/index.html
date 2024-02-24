@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PARADISE</title>
+    <link rel="stylesheet" href="./supporting_files/style.css">
+    <link rel="stylesheet" href="./supporting_files/payWall.css">
+    <link rel="stylesheet" href="./supporting_files/location.css">
+</head>
+
+<body class="bodyClass"> 
+    <img class = "logo" src="./supporting_files/images/logo.png">
+    <!-- <h1 class="title" id="myHeading" onclick="headingButton"><strong>PARADISE</strong></h1> -->
+
+    
+    <div class="container">
+        <h1 class="status"></h1>
+    </div>
+    <!-- <script src="findLocation.js"></script> -->
+
+    <div class="container" id="modal_container">
+        <div class ="popup">
+            <h5>Welcome to Paradise!</h5>
+            <p>
+                We have everything you are looking for!
+            </p>
+            <button class="but" id="button" onclick="closePopup()">LezGo</button>
+        </div>
+        <div class="popup_background"></div>
+    </div>
+    
+    <script>
+        var popup= document.querySelector(".popup");
+        var background = document.querySelector(".popup_background");
+        function closePopup(){
+            popup.classList.add("close-popup");
+            background.classList.remove("popup_background");
+        }
+        
+    </script>
+
+
+    <audio class = "my_audio" loop>
+        <source src = "./supporting_files/audio.mp3" type="audio/mpeg">
+    </audio>
+
+
+        <div id="allCards">
+            <div id="catSection">
+                <h2 class="sectionTitle">BROWSE BY CATEGORIES</h2>
+
+                <div id="allCatCards">
+                    <div class="catCard card" id="viewProduce">
+                        <h4><b>PRODUCE</b></h4>
+                        <img class="catImage" src="./supporting_files/images/produce.png">
+                        <div class="catInfo">
+                        </div>
+                    </div>
+                    <div class="catCard card" id="viewBakery">
+                        <h4><b>BAKED GOODS</b></h4>
+                        <img class="catImage" src="./supporting_files/images/baked_goods.png">
+                        <div class="catInfo">
+                        </div>
+                    </div>
+                    <div class="catCard card" id="viewDairy">
+                        <h4><b>DAIRY</b></h4>
+                        <img class="catImage" src="./supporting_files/images/dairy.png">
+                        <div class="catInfo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="produceSection" style="display:none;">
+                <h2 class="sectionTitle">PRODUCE</h2>
+
+                <p id="produceBreadcrumb" class="breadbrumb"> <a id="produceToCat"
+                        style="color: black; text-decoration: underline;">ALL
+                        CATEGORIES</a> > PRODUCE</p>
+
+                <div id="allProduceCards" class="allItemsCards">
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="apple">
+                            <img class="itemImage" src="./supporting_files/images/produce/apple.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Organic Apples Royal Gala</b></h3>
+                                <p class="pInfo">$8.99</p>
+                                <p class="pInfoSmall">1.36kg ($0.66 per 100g)</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="itemCard outOfStock card">
+                        <div class="itemCardContent" id="broccoli">
+                            <img class="itemImage outOfStockImage" src="./supporting_files/images/produce/broccoli.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Organic Broccoli</b></h3>
+                                <p class="pInfo">$6.99</p>
+                                <p class="pInfoSmall"> ($6.99 per item)</p>
+                            </div>
+                        </div>
+                        <p class="outOfStockmessage">OUT OF STOCK</p>
+                    </div>
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="mushroom">
+                            <img class="itemImage" src="./supporting_files/images/produce/mushroom.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Organic Mushrooms Cremini - 20 Count</b></h3>
+                                <p class="pInfo">$2.42</p>
+                                <p class="pInfoSmall">0.2kg ($12.10 per kilogram)</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="squash">
+                            <img class="itemImage" src="./supporting_files/images/produce/squash.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Squash</b></h3>
+                                <p class="pInfo">$1.98</p>
+                                <p class="pInfoSmall">0.3kg ($6.59 per kilogram)</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="tomato">
+                            <img class="itemImage" src="./supporting_files/images/produce/tomato.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Plum Roma Tomato</b></h3>
+                                <p class="pInfo">$1.98</p>
+                                <p class="pInfoSmall">0.3kg ($6.59 per kilogram)</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers' id="watermelon">
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="watermelon">
+                            <img class="itemImage" src="./supporting_files/images/produce/watermelon.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Watermelon Seedless</b></h3>
+                                <p class="pInfo" style="color: rgb(195, 46, 46);">$8.49 <span
+                                        class="strikethrough pInfo">$8.99</span></p>
+                                <p class="pInfoSmall">($8.49 per item)</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dairySection" style="display:none;">
+                <h2 class="sectionTitle">DAIRY</h2>
+
+                <p id="dairyBreadcrumb" class="breadbrumb"> <a id="dairyToCat"
+                        style="color: black; text-decoration: underline;">ALL
+                        CATEGORIES</a> > DAIRY</p>
+
+                <div id="allDairyCards" class="allItemsCards">
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="cheese">
+                            <img class="itemImage" src="./supporting_files/images/dairy/cheese.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Cheese</b></h3>
+                                <p class="pInfo">$11.99 ea</p>
+                                <p class="pInfoSmall">$4.80/ 100g</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="eggs">
+                            <img class="itemImage" src="./supporting_files/images/dairy/eggs.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Large Grade A Eggs</b></h3>
+                                <p class="pInfo">$3.69 ea</p>
+                                <p class="pInfoSmall">$0.31/ 1ea</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="milk">
+                            <img class="itemImage" src="./supporting_files/images/dairy/milk.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>2% Milk</b></h3>
+                                <p class="pInfo">$2.01 ea</p>
+                                <p class="pInfoSmall">$0.20/ 100ml</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bakerySection" style="display:none;">
+                <h2 class="sectionTitle">BAKED GOODS</h2>
+
+                <p id="bakeryBreadcrumb" class="breadbrumb"> <a id="bakeryToCat"
+                        style="color: black; text-decoration: underline;">ALL
+                        CATEGORIES</a> > BAKED GOODS</p>
+
+                <div id="allBakeryCards" class="allItemsCards">
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="pie">
+                            <img class="itemImage" src="./supporting_files/images/baked_goods/pie.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Rhubarb Strawberry Pie 10 Inch</b></h3>
+                                <p class="pInfo">$7.00 ea</p>
+                                <p class="pInfoSmall">$0.70/ 100g</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="itemCard card">
+                        <div class="itemCardContent" id="cupcake">
+                            <img class="itemImage" src="./supporting_files/images/baked_goods/cupcake.png">
+                            <div class="itemInfo">
+                                <h3 class="itemCardTitle"><b>Assorted Cupcakes</b></h3>
+                                <p class="pInfo">$6.50 ea</p>
+                                <p class="pInfoSmall">$1.14/ 100g</p>
+                            </div>
+                        </div>
+                        <div class='qtyButtonContainers'>
+                            <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                        <span class="cartCount" data-count="0">0</span>
+                        <button class='quantityButton btn' onclick="increment(this)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal" id="cupcake_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/baked_goods/cupcake.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="cupcake-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Assorted Cupcakes</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Butter, sugar, eggs, and flour are the
+                                    ingredients
+                                    used in these cupcakes.</p>
+                                <p class="productKey">Product Key: DGFGDFGF89789776</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="pie_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/baked_goods/pie.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="pie-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Rhubarb Strawberry Pie 10 Inch</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Rhubarb pie is a pie with a rhubarb filling.</p>
+                                <p class="productKey">Product Key: DGFGDFGF89789776</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="eggs_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/dairy/eggs.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="eggs-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Large Grade A Eggs</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Eggs come in a variety of sizes (extra-large,
+                                    large,
+                                    medium, and so on), and their shells are either white or brown, depending on the breed
+                                    of
+                                    hen. Crack the thin, protective shell on the edge of a dish (with one hand if you want
+                                    to
+                                    amaze your guests), then utilize the yolk and egg white inside for your favorite
+                                    breakfast
+                                    and dessert recipes.</p>
+                                <p class="productKey">Product Key: DGFGDFGF89789776</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="cheese_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/dairy/cheese.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="cheese-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Cheese</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Flavor is mild, mellow, and nutty. Suggestions
+                                    for
+                                    partnerships- Crackers and bread- Fruit and nuts- Preserves- Charcuterie meatIdeal for
+                                    entertaining, snacking, and cooking.</p>
+                                <p class="productKey">Product Key: DGFGDFGF89789776</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="apple_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/apple.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="apple-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Organic Apples Royal Gala</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Royal Gala apples are tasty and crisp, with
+                                    pink-orange stripes on a yellow background. They are juicy, fragrant, and best eaten
+                                    raw.
+                                    Serve sliced Royal Gala apples with blue cheese and toasted walnuts atop a salad.</p>
+                                <p class="productKey">Product Key: DGFGDFGF89789776</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="broccoli_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/broccoli.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="broccoli-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Organic Broccoli</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Broccoli is a cruciferous vegetable with tightly
+                                    packed florets on top of firm, edible stalks. It has a rich green color with a purple
+                                    tinge
+                                    to it. Add raw broccoli florets to your next veggie buffet or use in a quiche with
+                                    cheddar
+                                    cheese.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="mushroom_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/mushroom.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="mushroom-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Organic Mushrooms Cremini - 20 Count</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Whole Cremini Organics Mushrooms are poised to
+                                    become a common culinary staple. These nutty, mellow mushrooms pair well with spaghetti
+                                    and
+                                    stir-fry dishes.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="squash_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/squash.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="squash-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Squash</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Butternut squash is a winter squash with a pear
+                                    shape and silky tan skin and sweet orange flesh. It has a deep, nutty flavor and can be
+                                    used
+                                    in almost any recipe that calls for sweet potatoes. Roast butternut squash over kale
+                                    salad
+                                    with goat cheese, or simmer and puree for soup.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="tomato_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/tomato.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="tomato-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Plum Roma Tomato</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Greenhouse tomatoes are firm and plump with a
+                                    red
+                                    skin when ripe. They are perfect sliced and used as a topping on burgers and sandwiches
+                                    like
+                                    the classic BLT. Or scoop out the pulp and seeds to make baked stuffed tomatoes.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="watermelon_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/produce/watermelon.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="watermelon-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>Watermelon Seedless</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">Mini watermelons vary in size but are around the
+                                    size of a large cantaloupe. Because of their watery nature, they are a sweet and
+                                    refreshing
+                                    snack. Watermelon slices are delicious on their own, but you can also toss them with
+                                    feta
+                                    cheese and fresh mint for a refreshing summer salad.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="milk_modal">
+                <div class="modal-content">
+                    <div class="leftSide">
+                        <img class="itemDetailImage" src="./supporting_files/images/dairy/milk.png">
+                    </div>
+
+                    <div class="rightSide">
+                        <span class="close" id="milk-close-button">&times;</span>
+                        <div class="rightSideContent">
+                            <h2><b>2% Milk</b></h2>
+                            <h3>Product Description</3>
+                                <p style="font-weight: 100; margin-top:1%;">2% Partly Skimmed Milk has undergone at least
+                                    one
+                                    heat treatment and has a fat level ranging from 1.5% to 2%.</p>
+                                <p class="productKey">Product Key: SDGDF8G7DG9S87DFSDF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting to change text size, brightness and provide narrator optino-->
+        <button class="setting-button" id="setting-button" type="button">
+            <ion-icon name="settings"></ion-icon>
+        </button>
+
+        <div id="setting-overlay">
+            <div id="setting-overlay-content">
+                <button data-close-button id="setting-close-button" class="close-button"
+                    style="float: right">&times;</button>
+                <h2>Settings</h2>
+                <div class="settingView">
+                    <h4>Text Size</h4>
+                    <p>Drag the slider to adjust text size.</p>
+                    <div class="slideContainer">
+                        <input type="range" min="5" max="17" value = "5" class="slider" id="myRange1" >
+                    </div>
+                </div>
+                <br><br>
+                <div class="settingView">
+                    <h4>Brightness</h4>
+                    <p>Drag the slider to simulate brightness adjustments.</p>
+                    <div class="slideContainer">
+                        <input type="range" min="5" max="20" class="slider" id="myRange"
+                        oninput="adjustBrightness(this.value)">
+                    </div>
+                </div>
+                <br><br>
+                <div class="settingView">
+                    <h4>Screen Reader</h4>
+                    <p style="text-align: center;">When the screen reader is on, the button will be blue.</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="sliderSwitch"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button class="help-button" type="button">
+            <ion-icon name="help-circle"></ion-icon>
+        </button>
+
+        <!-- Cart view -->
+        <button id="overlay-button" class="menu-button">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <div id="overlay">
+            <div id="overlay-content">
+                <button data-close-button id="cart-close-button" class="close-button" style="float: right">&times;</button>
+                <h2>Your Cart</h2>
+                <div class="cartView">
+                    <div class="itemDetails">
+                        <h4 class="itemName" id="squashInCart">Squash</h4>
+                        <h4 class="itemPrice">$6.59/kilogram</h4>
+                    </div>
+                    <div class='qtyButtonContainers'>
+                        <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                    <span class="cartCount" data-count="0">0</span>
+                    <button class='quantityButton btn' onclick="increment(this)">+</button>
+                    </div>
+                </div>
+                <br>
+                <div class="cartView">
+                    <div class="itemDetails">
+                        <h4 class="itemName" id="cupcakeInCart">Assorted Cupcakes</h4>
+                        <h4 class="itemPrice">$6.59 ea</h4>
+                    </div>
+                    <div class='qtyButtonContainers'>
+                        <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                    <span class="cartCount" data-count="0">0</span>
+                    <button class='quantityButton btn' onclick="increment(this)">+</button>
+                    </div>
+                </div>
+                <br>
+                <div class="cartView">
+                    <div class="itemDetails">
+                        <h4 class="itemName" id="cheeseInCart">Cheese</h4>
+                        <h4 class="itemPrice">$11.99 ea</h4>
+                    </div>
+                    <div class='qtyButtonContainers'>
+                        <button class='quantityButton btn' onclick="decrement(this)">-</button>
+                    <span class="cartCount" data-count="0">0</span>
+                    <button class='quantityButton btn' onclick="increment(this)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <a href="index.html"> -->
+            <button class="home-button" type="button">
+                <ion-icon name="home"></ion-icon>
+            </button>
+        <!-- </a> -->
+
+        <button class="cart-button" type="button">
+            <ion-icon name="cart"></ion-icon>
+        </button>
+
+        <p class="extra-space"> </p>
+
+        <div id="searchbar">
+            <!-- Search bar-->
+            <div class="wrapper">
+                <div class="search_box">
+                    <input type="text" class="input_search" placeholder="What are you looking for today?"></input>
+                    <div class="search_btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logo-->
+
+        <!-- banner -->
+        <div class="banner"></div>
+
+
+
+    <script type="text/javascript" src="./supporting_files/jquery.js"></script>
+    <script type="text/javascript" src="./supporting_files/main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+    </script>
+</body>
+
+</html>

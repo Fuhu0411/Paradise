@@ -611,7 +611,6 @@
             <button class="home-button" type="button">
                 <ion-icon name="home"></ion-icon>
             </button>
-        <!-- </a> -->
 
         <button class="cart-button" type="button">
             <ion-icon name="cart"></ion-icon>
@@ -619,16 +618,14 @@
 
         <p class="extra-space"> </p>
 
-        <div id="searchbar">
-            <!-- Search bar-->
-            <div class="wrapper">
-                <div class="search_box">
-                    <input type="text" class="input_search" placeholder="What are you looking for today?"></input>
-                    <div class="search_btn">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </div>
-                </div>
+        <div id="searchbar" class="wrapper">
+            <!-- Search bar -->
+            <div class="search_box">
+                <input type="text" class="input_search" id="search-input" placeholder="What are you looking for today?">
+                <button class="search_btn" id="search-button">Search</button>
             </div>
+            <!-- Suggestions list -->
+            <ul id="suggestions"></ul>
         </div>
         <!-- Logo-->
 

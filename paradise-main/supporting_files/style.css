@@ -48,7 +48,7 @@ body {
 }
 
 .card:hover {
-  background: #d8d1ce;
+  background: #d6d627;
 }
 
 .breadbrumb {
@@ -86,6 +86,7 @@ button.catCardBtn {
 button.catCardBtn:hover {
   background: #0bae8e;
 }
+
 
 .catCard {
   font-size: var(--medium-class-font-size);
@@ -159,7 +160,7 @@ img.itemImage {
 .pInfoSmall { /* Price per item */
   margin: 0;
   margin-bottom: 1%;
-  font-size: small;
+  font-size: var(--small-class-font-size);
 }
 
 div.qtyButtonContainers {
@@ -170,13 +171,14 @@ div.qtyButtonContainers {
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+  font-size: var(--small-class-font-size);
 }
 
 div.qtyButtonContainers button.quantityButton {
-  width: 50px;
-  height: 50px;
+  width: calc(var(--small-class-font-size) * 4);
+  height: calc(var(--small-class-font-size) * 2);
   text-align: center;
-  font-size: xx-large;
+  font-size: var(--small-class-font-size);
   border-radius: 5%;
   cursor: pointer;
 }
@@ -505,6 +507,7 @@ img.itemDetailImage {
 
 :root {
   --section-title-font-size: 50px; /* Default font size */
+  --small-class-font-size: 40px;
 }
 
 .banner {
@@ -772,5 +775,46 @@ img.logo {
   height: auto; /* Maintain aspect ratio */
   position: absolute;
   z-index: 2;
+  cursor: pointer;
+}
+
+/* Basic styling for the search bar */
+.wrapper {
+  position: absolute;
+}
+.input_search {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  top: 15px;
+}
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 600px; /* Match the input width */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+  top: 100px; /* Adjust this value as needed */
+}
+#suggestions li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
   cursor: pointer;
 }

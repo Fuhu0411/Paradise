@@ -181,3 +181,52 @@ fontSizeSlider.addEventListener('input', function () {
     document.documentElement.style.setProperty('--small-class-font-size', this.value + '0.25px');
     inputSearch.style.fontSize = Math.min(24, maxFontSize) + 'px';
 });
+
+// search bar logics
+const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const suggestionsList = document.getElementById('suggestions');
+
+        // Sample data for word suggestions
+        const words = ['Apple', 'Assorted Cupcakes', 'Baked Goods', 'Cheese', 'Milk', 'Large X Eggs', 'Organic Brocoli', 'Organic Mushrooms', 'Plum Roma Tomatoes', 'Pie', 'Rhubard  Strawberry', 'Watermelon Seedless', 'Squash'];
+
+        // Event listener for input changes
+        searchInput.addEventListener('input', () => {
+            const inputValue = searchInput.value.toLowerCase();
+            const filteredWords = words.filter(word => word.toLowerCase().startsWith(inputValue));
+            displaySuggestions(filteredWords);
+        });
+
+        // Display suggestions in the list
+        function displaySuggestions(suggestions) {
+            suggestionsList.innerHTML = '';
+            if (suggestions.length === 0) {
+                const li = document.createElement('li');
+                li.textContent = 'No search results found';
+                suggestionsList.appendChild(li);
+            } else {
+                suggestions.forEach(suggestion => {
+                    const li = document.createElement('li');
+                    li.textContent = suggestion;
+                    li.addEventListener('click', () => {
+                        searchInput.value = suggestion;
+                        suggestionsList.style.display = 'none';
+                    });
+                    suggestionsList.appendChild(li);
+                });
+            }
+            suggestionsList.style.display = 'block';
+        }
+
+        // Event listener for search button
+        searchButton.addEventListener('click', () => {
+            const query = searchInput.value;
+            // Implement your search functionality here
+            console.log(`Searching for: ${query}`);
+            if (!words.includes(query.toLowerCase())) {
+                console.log('No search results found');
+                displaySuggestions([]);
+            } else {
+                window.location.href = `=${encodeURIComponent(query)}`;
+            }
+        });

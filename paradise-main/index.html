@@ -556,9 +556,85 @@
             </div>
         </div>
 
-        <button class="help-button" type="button">
+        <!-- begin -->
+        <button class="help-button" type="button" id="helpButton">
             <ion-icon name="help-circle"></ion-icon>
         </button>
+
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div style="text-align: center;">
+                    <p style="font-size: 34px; font-family: 'Times New Roman', Times, serif;"> 1. Browse through different categories of items below
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        2. Use the search bar to find a specific item
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        3. Click the three lined button on the left to access your cart
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        4. Click the button with the house on it to return to the home page
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        <br> <!-- line break -->
+                        5. Click the button with the cart on it to proceed to check-out
+                    </p>
+                </div>
+                <!-- <p>Browse through items below</p> -->
+            </div>
+        </div>
+
+        <style>
+            /* Style for the modal */
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 105%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modal-content {
+                position: absolute;
+                top: 43%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgb(86, 211, 186);
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(6,184,148,0.5);
+            /* rgba(6, 184, 148, 0.5); */
+            }
+
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 60px;
+                cursor: pointer;
+                color:darkred;
+            }
+        </style>
+
+        <script>
+            var helpButton = document.getElementById('helpButton');
+            var modal = document.getElementById('myModal');
+
+            helpButton.addEventListener('click', function() {
+                modal.style.display = 'block';
+            });
+
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+        </script>
+        <!-- end -->
 
         <!-- Cart view -->
         <button id="overlay-button" class="menu-button">
@@ -569,7 +645,7 @@
             <div id="overlay-content">
                 <button data-close-button id="cart-close-button" class="close-button" style="float: right">&times;</button>
                 <h2>Your Cart</h2>
-                <div class="cartView">
+                <!-- <div class="cartView">
                     <div class="itemDetails">
                         <h4 class="itemName" id="squashInCart">Squash</h4>
                         <h4 class="itemPrice">$6.59/kilogram</h4>
@@ -603,7 +679,7 @@
                     <span class="cartCount" data-count="0">0</span>
                     <button class='quantityButton btn' onclick="increment(this)">+</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

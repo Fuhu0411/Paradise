@@ -15,4 +15,4 @@ Huu Nguyen Phu Le - Group Project .Hackathon 2024
        6. Search Bar 
        7. Tutorial 
 ```
->>>VOLUME ON FOR FULL EFFECT
+>>>VOLUME ON FOR FULL EXPERIENCE

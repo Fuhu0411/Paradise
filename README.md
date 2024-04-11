@@ -1,5 +1,5 @@
 ```
-Huu Nguyen Phu Le
+Huu Nguyen Phu Le - Group Project .Hackathon 2024
 
 #Paradise - website for the elderly
    Made with JavaScript, HTML, and CSS, this website promotes accessibility towards the elderly

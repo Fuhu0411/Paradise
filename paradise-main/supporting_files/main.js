@@ -153,7 +153,7 @@ const findMyState=()=>{
         const longitude = position.coords.longitude;
         console.log(latitude + ", "+longitude);
 
-        const geoApiUrl = 'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longtitude}&localityLanguage=en'
+        const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
         
         fetch(geoApiUrl)
         .then(res => res.json())
